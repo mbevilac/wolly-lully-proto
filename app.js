@@ -131,7 +131,9 @@ function renderCartDrawer() {
   itemsEl.innerHTML = cart.map(item => `
     <div class="cart-item">
       <div class="cart-item-image">
-        <div class="img-placeholder img-${item.colour}">${item.name.split(' ')[0]}</div>
+        ${item.image
+          ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+          : `<div class="img-placeholder img-${item.colour}">${item.name.split(' ')[0]}</div>`}
       </div>
       <div class="cart-item-details">
         <div class="cart-item-name">${item.name}</div>
@@ -328,6 +330,7 @@ function initAddToCart() {
       colour:      colour.toLowerCase(),
       composition: atcBtn.dataset.composition,
       fit:         document.getElementById('fit-label')?.textContent || 'Classic Fit',
+      image:       atcBtn.dataset.image || null,
     });
     openCart();
   });
@@ -408,7 +411,7 @@ function renderOrderSummary() {
     itemsEl.innerHTML = `
       <div class="order-item">
         <div class="order-item-image" style="position:relative">
-          <div class="img-placeholder img-navy">NVY</div>
+          <img src="imgs/products/navy-cashmere-crewneck-front.png" alt="Navy Cashmere Crewneck" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="item-qty-badge">1</span>
         </div>
         <div class="order-item-details">
@@ -419,7 +422,7 @@ function renderOrderSummary() {
       </div>
       <div class="order-item">
         <div class="order-item-image" style="position:relative">
-          <div class="img-placeholder img-grey">GRY</div>
+          <img src="imgs/products/grey-cashmere-beanie-front.png" alt="Grey Cashmere Beanie" style="width:100%;height:100%;object-fit:cover;display:block;">
           <span class="item-qty-badge">1</span>
         </div>
         <div class="order-item-details">

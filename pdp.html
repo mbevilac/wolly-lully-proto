@@ -68,23 +68,23 @@
       <!-- LEFT: Gallery -->
       <div class="pdp-gallery">
         <div class="pdp-gallery-main" title="Click to zoom">
-          <div class="img-placeholder img-navy" id="main-img">NAVY CREWNECK · FRONT</div>
+          <img src="imgs/products/navy-cashmere-crewneck-front.png" alt="Navy Cashmere Crewneck - Front" id="main-img">
         </div>
         <div class="pdp-thumbs">
           <div class="pdp-thumb active">
-            <div class="img-placeholder img-navy">Front</div>
+            <img src="imgs/products/navy-cashmere-crewneck-front.png" alt="Front view" loading="lazy">
           </div>
           <div class="pdp-thumb">
-            <div class="img-placeholder img-navy">Back</div>
+            <img src="imgs/lifestyle/about-lifestyle-01.png" alt="Lifestyle view" loading="lazy">
           </div>
           <div class="pdp-thumb">
-            <div class="img-placeholder img-navy">Texture</div>
+            <img src="imgs/lifestyle/about-lifestyle-02.png" alt="Lifestyle view 2" loading="lazy">
           </div>
           <div class="pdp-thumb">
-            <div class="img-placeholder img-navy">Detail</div>
+            <img src="imgs/lifestyle/about-lifestyle-03.png" alt="Detail view" loading="lazy">
           </div>
         </div>
-        <p style="font-size:0.72rem; color:var(--text-light); margin-top:10px; text-align:center;">+4 more photos · hover to zoom</p>
+        <p style="font-size:0.72rem; color:var(--text-light); margin-top:10px; text-align:center;">4 photos · hover to zoom</p>
       </div>
 
       <!-- RIGHT: Product info -->
@@ -155,6 +155,7 @@
             data-price="285"
             data-composition="100% 2-ply cashmere"
             data-selected-size="M"
+            data-image="imgs/products/navy-cashmere-crewneck-front.png"
           >
             ADD TO CART — CHF 285
           </button>
@@ -231,7 +232,7 @@
       <div class="cross-sell-grid">
         <a href="pdp.html?product=cream-scarf" class="product-card">
           <div class="product-card__image">
-            <div class="img-placeholder img-cream">Cream Scarf</div>
+            <img src="imgs/products/cream-cashmere-scarf-front.png" alt="Cream Cashmere Scarf" loading="lazy">
           </div>
           <div class="product-card__body">
             <div class="product-card__name">Cream Cashmere Scarf</div>
@@ -242,7 +243,7 @@
         </a>
         <a href="pdp.html?product=grey-beanie" class="product-card">
           <div class="product-card__image">
-            <div class="img-placeholder img-grey">Grey Beanie</div>
+            <img src="imgs/products/grey-cashmere-beanie-front.png" alt="Grey Cashmere Beanie" loading="lazy">
           </div>
           <div class="product-card__body">
             <div class="product-card__name">Grey Cashmere Beanie</div>
@@ -253,7 +254,7 @@
         </a>
         <a href="pdp.html?product=navy-cardigan" class="product-card">
           <div class="product-card__image">
-            <div class="img-placeholder img-navy">Navy Cardigan</div>
+            <img src="imgs/products/navy-cashmere-cardigan-front.png" alt="Navy Cashmere Cardigan" loading="lazy">
           </div>
           <div class="product-card__body">
             <div class="product-card__name">Navy Cashmere Cardigan</div>
@@ -349,10 +350,39 @@
       <h3>Size Guide — Crewneck</h3>
       <button class="icon-btn" id="size-guide-close">✕</button>
     </div>
-    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px;">
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:16px;">
       Measurements taken flat (cm). For a comfortable fit, match to your chest measurement.
       Our cashmere has slight natural stretch — if between sizes, size up for a relaxed feel.
     </p>
+
+    <!-- Mannequin photos per size -->
+    <div class="size-mannequin-row">
+      <div class="size-mannequin-item active" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-xs-mannequin.png" alt="XS fit on mannequin" loading="lazy">
+        <span>XS</span>
+      </div>
+      <div class="size-mannequin-item" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-s-mannequin.png" alt="S fit on mannequin" loading="lazy">
+        <span>S</span>
+      </div>
+      <div class="size-mannequin-item" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-m-mannequin.png" alt="M fit on mannequin" loading="lazy">
+        <span>M</span>
+      </div>
+      <div class="size-mannequin-item" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-l-mannequin.png" alt="L fit on mannequin" loading="lazy">
+        <span>L</span>
+      </div>
+      <div class="size-mannequin-item" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-xl-mannequin.png" alt="XL fit on mannequin" loading="lazy">
+        <span>XL</span>
+      </div>
+      <div class="size-mannequin-item" onclick="selectMannequin(this)">
+        <img src="imgs/size-guide/size-guide-xxl-mannequin.png" alt="XXL fit on mannequin" loading="lazy">
+        <span>XXL</span>
+      </div>
+    </div>
+
     <table class="size-guide-table">
       <thead>
         <tr>
@@ -389,5 +419,26 @@
 </div>
 
 <script src="app.js"></script>
+<script>
+  // Mannequin size selector in size guide modal
+  function selectMannequin(el) {
+    document.querySelectorAll('.size-mannequin-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    // Also select the matching size button
+    const size = el.querySelector('span').textContent;
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    const match = document.querySelector(`.size-btn[data-size="${size}"]`);
+    if (match && !match.classList.contains('out-of-stock')) match.classList.add('active');
+  }
+
+  // Gallery thumb swap — update main image src
+  document.querySelectorAll('.pdp-thumb').forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      const src = thumb.querySelector('img')?.src;
+      const mainImg = document.getElementById('main-img');
+      if (src && mainImg) mainImg.src = src;
+    });
+  });
+</script>
 </body>
 </html>

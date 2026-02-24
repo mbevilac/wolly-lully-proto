@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Wolly Lully</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="header-nav">
+      <a href="shop.html" class="active">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="homepage.html" class="header-logo">WOLLY LULLY</a>
+    <div class="header-actions">
+      <button class="cart-btn" id="open-cart" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Cart
+        <span class="cart-badge"></span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <span>Menu</span>
+    <button class="icon-btn" id="nav-close">✕</button>
+  </div>
+  <div class="nav-drawer-links">
+    <a href="shop.html">Shop <span>›</span></a>
+    <a href="#">About <span>›</span></a>
+    <a href="#">Contact <span>›</span></a>
+  </div>
+  <div class="nav-drawer-footer">
+    <a href="#">Size Guide</a>
+    <a href="#">Returns &amp; Exchanges</a>
+    <a href="#">Shipping &amp; Delivery</a>
+  </div>
+</nav>
+
+<!-- ===== PAGE BODY ===== -->
+<main class="page-body">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="homepage.html">Home</a>
+      <span class="sep">›</span>
+      <span class="current">Shop</span>
+    </nav>
+
+    <h1 style="margin-bottom:8px; font-size:1.6rem;">The Collection</h1>
+
+    <!-- SHOP TOOLBAR -->
+    <div class="shop-toolbar">
+      <!-- Desktop filters -->
+      <div class="filter-bar">
+        <select class="filter-select" data-filter="price" aria-label="Filter by price">
+          <option value="">Price</option>
+          <option value="180-300">CHF 180–300</option>
+          <option value="300-500">CHF 300–500</option>
+        </select>
+        <select class="filter-select" data-filter="colour" aria-label="Filter by colour">
+          <option value="">Colour</option>
+          <option value="navy">Navy</option>
+          <option value="cream">Cream</option>
+          <option value="burgundy">Burgundy</option>
+          <option value="camel">Camel</option>
+          <option value="charcoal">Charcoal</option>
+          <option value="ivory">Ivory</option>
+          <option value="grey">Grey</option>
+          <option value="oatmeal">Oatmeal</option>
+          <option value="black">Black</option>
+        </select>
+        <select class="filter-select" data-filter="size" aria-label="Filter by size">
+          <option value="">Size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+        <select class="filter-select" data-filter="fit" aria-label="Filter by fit">
+          <option value="">Fit</option>
+          <option value="Classic">Classic</option>
+          <option value="Relaxed">Relaxed</option>
+          <option value="Slim">Slim</option>
+        </select>
+        <select class="filter-select" data-filter="style" aria-label="Filter by style">
+          <option value="">Style</option>
+          <option value="Crewneck">Crewneck</option>
+          <option value="V-Neck">V-Neck</option>
+          <option value="Turtleneck">Turtleneck</option>
+          <option value="Cardigan">Cardigan</option>
+          <option value="Scarf">Scarf</option>
+          <option value="Beanie">Beanie</option>
+        </select>
+        <select class="filter-select" data-filter="material" aria-label="Filter by material">
+          <option value="">Material</option>
+          <option value="cashmere">100% Cashmere</option>
+          <option value="merino">Merino Blend</option>
+        </select>
+        <button id="clear-filters" class="btn btn-secondary" style="padding:8px 14px; font-size:0.72rem; min-height:36px;">Clear all</button>
+      </div>
+
+      <!-- Mobile filter button -->
+      <button class="filter-toggle-btn" id="filter-toggle-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filter &amp; Sort
+        <span class="filter-badge" id="filter-badge">0</span>
+      </button>
+
+      <!-- Sort + count -->
+      <div style="display:flex; align-items:center; gap:12px; margin-left:auto;">
+        <span class="results-count" id="results-count">12 of 12 products</span>
+        <select class="sort-select" id="sort-select" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Active filter chips -->
+    <div class="active-filters" id="active-filters"></div>
+
+    <!-- PRODUCT GRID (all 12 products) -->
+    <div class="product-grid" id="product-grid" style="margin-top:20px; margin-bottom:64px;">
+
+      <!-- 1. Navy Cashmere Crewneck -->
+      <a href="pdp.html" class="product-card"
+         data-order="1" data-price="180-300" data-price-num="285"
+         data-colour="navy" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="Crewneck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-navy">Navy</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Navy Cashmere Crewneck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 280 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 285</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 2. Cream Cashmere Crewneck -->
+      <a href="pdp.html?product=cream-crewneck" class="product-card"
+         data-order="2" data-price="180-300" data-price-num="285"
+         data-colour="cream" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="Crewneck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-cream">Cream</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Cream Cashmere Crewneck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 280 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 285</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 3. Burgundy V-Neck -->
+      <a href="pdp.html?product=burgundy-vneck" class="product-card"
+         data-order="3" data-price="180-300" data-price-num="295"
+         data-colour="burgundy" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Relaxed" data-style="V-Neck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-burgundy">Burgundy</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Burgundy Cashmere V-Neck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 270 gsm</div>
+          <div class="product-card__fit">Relaxed Fit</div>
+          <div class="product-card__price">CHF 295</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 4. Camel V-Neck -->
+      <a href="pdp.html?product=camel-vneck" class="product-card"
+         data-order="4" data-price="180-300" data-price-num="295"
+         data-colour="camel" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Relaxed" data-style="V-Neck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-camel">Camel</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Camel Cashmere V-Neck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 270 gsm</div>
+          <div class="product-card__fit">Relaxed Fit</div>
+          <div class="product-card__price">CHF 295</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 5. Charcoal Turtleneck -->
+      <a href="pdp.html?product=charcoal-turtleneck" class="product-card"
+         data-order="5" data-price="300-500" data-price-num="310"
+         data-colour="charcoal" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Slim" data-style="Turtleneck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-charcoal">Charcoal</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Charcoal Cashmere Turtleneck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 300 gsm</div>
+          <div class="product-card__fit">Slim Fit</div>
+          <div class="product-card__price">CHF 310</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 6. Ivory Turtleneck -->
+      <a href="pdp.html?product=ivory-turtleneck" class="product-card"
+         data-order="6" data-price="300-500" data-price-num="310"
+         data-colour="ivory" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Slim" data-style="Turtleneck" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-ivory">Ivory</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Ivory Cashmere Turtleneck</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 300 gsm</div>
+          <div class="product-card__fit">Slim Fit</div>
+          <div class="product-card__price">CHF 310</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 7. Grey Cardigan -->
+      <a href="pdp.html?product=grey-cardigan" class="product-card"
+         data-order="7" data-price="300-500" data-price-num="350"
+         data-colour="grey" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="Cardigan" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-grey">Grey</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Grey Cashmere Cardigan</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 260 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 350</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 8. Navy Cardigan -->
+      <a href="pdp.html?product=navy-cardigan" class="product-card"
+         data-order="8" data-price="300-500" data-price-num="350"
+         data-colour="navy" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="Cardigan" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-navy">Navy</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Navy Cashmere Cardigan</div>
+          <div class="product-card__composition">100% 2-ply cashmere · 260 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 350</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 9. Oatmeal Merino Crewneck -->
+      <a href="pdp.html?product=oatmeal-merino" class="product-card"
+         data-order="9" data-price="180-300" data-price-num="195"
+         data-colour="oatmeal" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="Crewneck" data-material="merino">
+        <div class="product-card__image">
+          <div class="img-placeholder img-oatmeal">Oatmeal</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Oatmeal Merino Crewneck</div>
+          <div class="product-card__composition">80% merino, 20% cashmere · 240 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 195</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 10. Black Merino V-Neck -->
+      <a href="pdp.html?product=black-merino" class="product-card"
+         data-order="10" data-price="180-300" data-price-num="195"
+         data-colour="black" data-sizes="XS,S,M,L,XL,XXL"
+         data-fit="Classic" data-style="V-Neck" data-material="merino">
+        <div class="product-card__image">
+          <div class="img-placeholder img-black">Black</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Black Merino V-Neck</div>
+          <div class="product-card__composition">80% merino, 20% cashmere · 240 gsm</div>
+          <div class="product-card__fit">Classic Fit</div>
+          <div class="product-card__price">CHF 195</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 11. Cream Scarf -->
+      <a href="pdp.html?product=cream-scarf" class="product-card"
+         data-order="11" data-price="180-300" data-price-num="180"
+         data-colour="cream" data-sizes="ONE SIZE"
+         data-fit="Classic" data-style="Scarf" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-cream" style="aspect-ratio:4/3">Scarf</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Cream Cashmere Scarf</div>
+          <div class="product-card__composition">100% cashmere · 200 cm × 70 cm</div>
+          <div class="product-card__fit">One Size</div>
+          <div class="product-card__price">CHF 180</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+      <!-- 12. Grey Beanie -->
+      <a href="pdp.html?product=grey-beanie" class="product-card"
+         data-order="12" data-price="180-300" data-price-num="185"
+         data-colour="grey" data-sizes="ONE SIZE"
+         data-fit="Classic" data-style="Beanie" data-material="cashmere">
+        <div class="product-card__image">
+          <div class="img-placeholder img-grey" style="aspect-ratio:4/3">Beanie</div>
+        </div>
+        <div class="product-card__body">
+          <div class="product-card__name">Grey Cashmere Beanie</div>
+          <div class="product-card__composition">100% cashmere · One size 54–60 cm</div>
+          <div class="product-card__fit">One Size</div>
+          <div class="product-card__price">CHF 185</div>
+          <span class="product-card__cta">View Details</span>
+        </div>
+      </a>
+
+    </div><!-- /product-grid -->
+
+  </div><!-- /container -->
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="shop.html">All Products</a>
+        <a href="#">Sweaters</a>
+        <a href="#">Cardigans</a>
+        <a href="#">Accessories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Info</h5>
+        <a href="#">About</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Care Instructions</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Imprint</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="#">hello@wollylully.ch</a>
+        <a href="#">Zurich, Switzerland</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Wolly Lully GmbH · Zurich, Switzerland</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MC</span>
+        <span class="payment-icon">AMEX</span>
+        <span class="payment-icon">🍎 Pay</span>
+        <span class="payment-icon">TWINT</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE FILTER DRAWER ===== -->
+<div class="filter-overlay" id="filter-overlay"></div>
+<div class="filter-drawer" id="filter-drawer" role="dialog" aria-label="Filter products">
+  <div class="filter-drawer-header">
+    <span style="font-size:0.85rem; font-weight:500;">Filter &amp; Sort</span>
+    <button class="icon-btn" id="filter-drawer-close">✕</button>
+  </div>
+
+  <!-- Sort -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Sort by <span class="arrow">›</span></button>
+    <div class="filter-accordion-content" data-filter-key="sort">
+      <button class="filter-option-btn active" data-filter-key="sort" data-value="featured">Featured</button>
+      <button class="filter-option-btn" data-filter-key="sort" data-value="price-asc">Price: Low → High</button>
+      <button class="filter-option-btn" data-filter-key="sort" data-value="price-desc">Price: High → Low</button>
+    </div>
+  </div>
+
+  <!-- Price -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Price <span class="arrow">›</span></button>
+    <div class="filter-accordion-content">
+      <button class="filter-option-btn" data-filter-key="price" data-value="180-300">CHF 180–300</button>
+      <button class="filter-option-btn" data-filter-key="price" data-value="300-500">CHF 300–500</button>
+    </div>
+  </div>
+
+  <!-- Size -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Size <span class="arrow">›</span></button>
+    <div class="filter-accordion-content">
+      <button class="filter-option-btn" data-filter-key="size" data-value="XS">XS</button>
+      <button class="filter-option-btn" data-filter-key="size" data-value="S">S</button>
+      <button class="filter-option-btn" data-filter-key="size" data-value="M">M</button>
+      <button class="filter-option-btn" data-filter-key="size" data-value="L">L</button>
+      <button class="filter-option-btn" data-filter-key="size" data-value="XL">XL</button>
+      <button class="filter-option-btn" data-filter-key="size" data-value="XXL">XXL</button>
+    </div>
+  </div>
+
+  <!-- Fit -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Fit <span class="arrow">›</span></button>
+    <div class="filter-accordion-content">
+      <button class="filter-option-btn" data-filter-key="fit" data-value="Classic">Classic</button>
+      <button class="filter-option-btn" data-filter-key="fit" data-value="Relaxed">Relaxed</button>
+      <button class="filter-option-btn" data-filter-key="fit" data-value="Slim">Slim</button>
+    </div>
+  </div>
+
+  <!-- Style -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Style <span class="arrow">›</span></button>
+    <div class="filter-accordion-content">
+      <button class="filter-option-btn" data-filter-key="style" data-value="Crewneck">Crewneck</button>
+      <button class="filter-option-btn" data-filter-key="style" data-value="V-Neck">V-Neck</button>
+      <button class="filter-option-btn" data-filter-key="style" data-value="Turtleneck">Turtleneck</button>
+      <button class="filter-option-btn" data-filter-key="style" data-value="Cardigan">Cardigan</button>
+      <button class="filter-option-btn" data-filter-key="style" data-value="Scarf">Scarf</button>
+      <button class="filter-option-btn" data-filter-key="style" data-value="Beanie">Beanie</button>
+    </div>
+  </div>
+
+  <!-- Material -->
+  <div class="filter-accordion-item">
+    <button class="filter-accordion-btn">Material <span class="arrow">›</span></button>
+    <div class="filter-accordion-content">
+      <button class="filter-option-btn" data-filter-key="material" data-value="cashmere">100% Cashmere</button>
+      <button class="filter-option-btn" data-filter-key="material" data-value="merino">Merino Blend</button>
+    </div>
+  </div>
+
+  <div class="filter-drawer-footer">
+    <button id="clear-filters-mobile" class="btn btn-secondary" style="flex:1" onclick="document.getElementById('clear-filters').click()">Clear all</button>
+    <button class="btn btn-dark" style="flex:2" id="show-results-btn">Show Results</button>
+  </div>
+</div>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="cart-close">✕</button>
+  </div>
+  <div class="shipping-progress" id="shipping-progress">
+    <p>Add <strong>CHF 300</strong> more for free delivery 🎉</p>
+    <div class="progress-bar"><div class="progress-bar-fill" style="width:0%"></div></div>
+  </div>
+  <div id="cart-items-list" class="cart-items"></div>
+  <div class="cart-empty" id="cart-empty">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" style="color:var(--border-dark)"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <p>Your cart is empty.</p>
+    <button class="btn btn-secondary" onclick="closeCart()">Continue Shopping</button>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-totals">
+      <div class="row"><span>Subtotal</span><span id="cart-subtotal">CHF 0</span></div>
+      <div class="row"><span>Delivery</span><span id="cart-shipping">CHF 9</span></div>
+      <div class="row" style="font-size:0.75rem; color:var(--text-light)"><span>VAT (7.7%, incl.)</span><span id="cart-vat">—</span></div>
+      <div class="row total"><span>Total</span><span id="cart-total">CHF 0</span></div>
+    </div>
+    <button class="btn btn-primary btn--full btn--lg" id="cart-checkout-btn">CHECKOUT →</button>
+    <button class="btn btn-secondary btn--full" style="margin-top:8px" onclick="closeCart()">Continue Shopping</button>
+    <p class="cart-trust">↩️ 30-day free returns &nbsp;·&nbsp; 🔒 Secure checkout</p>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>

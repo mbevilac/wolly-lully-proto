@@ -1719,6 +1719,65 @@ h4 { font-size: 1rem; }
 .ux-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
 
 /* ============================================================
+   REAL IMAGE SUPPORT
+   ============================================================ */
+.product-card__image img,
+.pdp-gallery-main img,
+.pdp-thumb img,
+.cart-item-image img,
+.order-item-image img,
+.cross-sell .product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card__image img { transform: scale(1.04); }
+.pdp-gallery-main:hover img { transform: scale(1.05); }
+
+/* Hero with real background image */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(20,35,70,0.72) 0%, rgba(40,25,55,0.68) 100%);
+}
+
+/* Size guide mannequin grid */
+.size-mannequin-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.size-mannequin-item { text-align: center; cursor: pointer; }
+.size-mannequin-item img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.size-mannequin-item.active img { border-color: var(--gold); }
+.size-mannequin-item span {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+.size-mannequin-item.active span { color: var(--gold); }
+
+/* ============================================================
    RESPONSIVE — TABLET
    ============================================================ */
 @media (max-width: 900px) {

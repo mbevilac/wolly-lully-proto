@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wolly Lully — Clickable Prototype</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--bg); }
+    .back-to-wireframes {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-to-wireframes:hover { color: rgba(255,255,255,0.9); }
+    .phase-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 16px;
+    }
+    .flow-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .ux-tag-critical { background: #B60205; }
+    .ux-tag-high { background: var(--gold); }
+    .what-to-test {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px;
+      margin: 48px 0;
+    }
+    .what-to-test h2 { margin-bottom: 20px; font-size: 1.2rem; }
+    .test-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 640px) { .test-list { grid-template-columns: 1fr; } }
+    .test-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      background: var(--bg-beige);
+      border-radius: 3px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .test-item .num {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--gold);
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .diff-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 16px; }
+    .diff-table th, .diff-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
+    .diff-table th { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; background: var(--bg-beige); }
+    .diff-table td:first-child { font-weight: 500; white-space: nowrap; }
+    .tick { color: var(--success); font-weight: 600; }
+    .cross { color: #B60205; }
+  </style>
+</head>
+<body>
+
+<!-- Proto header -->
+<div class="proto-header">
+  <div class="container">
+    <a href="../wireframes/index.html" class="back-to-wireframes">← Back to wireframes</a>
+    <div style="margin-top:20px;">
+      <div class="phase-badge">Phase 0 · Issue #82</div>
+      <h1>Clickable Prototype</h1>
+      <p>End-to-end interactive flow — Homepage → Shop → PDP → Cart → Checkout</p>
+    </div>
+  </div>
+</div>
+
+<main style="padding-bottom:80px;">
+  <div class="container">
+
+    <!-- USER FLOW CARDS -->
+    <div class="flow-section">
+      <div class="flow-label">Primary User Flow</div>
+      <div class="flow-cards">
+        <a href="homepage.html" class="flow-card">
+          <div class="flow-card-num">01</div>
+          <h3>Homepage</h3>
+          <p>Hero · Featured products · Mission block · Newsletter</p>
+          <div class="arrow">›</div>
+        </a>
+        <a href="shop.html" class="flow-card">
+          <div class="flow-card-num">02</div>
+          <h3>Shop</h3>
+          <p>12 products · Live AJAX filters · Sort · Mobile filter drawer</p>
+          <div class="arrow">›</div>
+        </a>
+        <a href="pdp.html" class="flow-card">
+          <div class="flow-card-num">03</div>
+          <h3>Product Detail</h3>
+          <p>Specs block · Size selector · Fit labels · Add to cart · Sticky ATC</p>
+          <div class="arrow">›</div>
+        </a>
+        <a href="pdp.html" class="flow-card" onclick="event.preventDefault(); window.location.href='pdp.html'; setTimeout(()=>openCart && openCart(), 800)">
+          <div class="flow-card-num">04</div>
+          <h3>Cart Drawer</h3>
+          <p>Slide-in drawer · Shipping progress bar · Qty controls</p>
+          <div class="arrow">›</div>
+        </a>
+        <a href="checkout.html" class="flow-card">
+          <div class="flow-card-num">05</div>
+          <h3>Checkout</h3>
+          <p>Express pay · Contact · Delivery · Payment · Order confirmation</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- WHAT TO TEST -->
+    <div class="what-to-test">
+      <h2>What to evaluate in this prototype</h2>
+      <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:20px;">
+        Success criteria from issue #82: a user should be able to (1) find a cashmere product, (2) understand its composition and qualities, (3) add it to cart and reach checkout — without guidance.
+      </p>
+      <div class="test-list">
+        <div class="test-item">
+          <div class="num">1</div>
+          <div>Can you identify the composition of the Navy Crewneck without clicking anything extra?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">2</div>
+          <div>Is the fit label system (Classic / Relaxed / Slim) clear enough to replace a traditional size chart?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">3</div>
+          <div>Does the return policy feel prominent enough in the PDP and cart to reduce purchase anxiety?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">4</div>
+          <div>Does the cart drawer feel smooth, or does it interrupt the browsing flow?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">5</div>
+          <div>Do the shop filters make sense? Are any missing or confusing?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">6</div>
+          <div>Is one-page checkout (all sections visible at once) better than multi-step? Any friction?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">7</div>
+          <div>On mobile: is the sticky ATC bar helpful or intrusive? Does the hamburger menu feel right?</div>
+        </div>
+        <div class="test-item">
+          <div class="num">8</div>
+          <div>Does the CHF pricing and Swiss identity (Swiss Post, Zurich address) feel trustworthy?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UX DIFFERENTIATORS IMPLEMENTED -->
+    <div class="ux-notes">
+      <div style="margin-bottom:24px;">
+        <div class="flow-label">UX Recommendations implemented</div>
+        <p style="font-size:0.88rem; color:var(--text-muted);">Based on competitive audit D8 — critical (R1–R5) and high priority (R6–R10).</p>
+      </div>
+      <div class="ux-grid">
+        <div class="ux-card">
+          <span class="tag ux-tag-critical">R1 · Critical</span>
+          <h4>Material Specs Block</h4>
+          <p>Composition, fibre fineness (micron), weight (gsm) and origin on every PDP. No competitor does this in-page. Visible on the PDP before any click.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-critical">R2 · Critical</span>
+          <h4>Fit Labels</h4>
+          <p>Per-size fit label below size selector: "Classic Fit — true to standard sizing". Replaces Lunu's "Free Size" (conversion killer) with actionable guidance.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-critical">R3 · Critical</span>
+          <h4>Return Policy on PDP</h4>
+          <p>Trust bar below ATC + one-line reassurance. Repeated in cart drawer footer. None of 3 competitors show this on the product page.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-critical">R4 · Critical</span>
+          <h4>Slide-in Cart Drawer</h4>
+          <p>Cart slides from right — no page navigation. Maintains browsing flow for cross-sell. Includes free shipping progress bar and trust line.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-critical">R5 · Critical</span>
+          <h4>CHF-Native + Swiss Identity</h4>
+          <p>CHF throughout. Swiss Post delivery. Zurich address in footer. TWINT visible (marked as MVP). GOBI fails this — our structural advantage.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-high">R6 · High</span>
+          <h4>Live Filter System</h4>
+          <p>AJAX-style filtering (no reload) across 6 dimensions. Desktop dropdowns + mobile accordion drawer. Active chips + "Clear all". Live results count.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-high">R7 · High</span>
+          <h4>Composition on Product Cards</h4>
+          <p>"100% 2-ply cashmere · 280 gsm" visible in the grid without clicking. Neither Lunu nor GOBI shows composition on cards — highest-value single improvement.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-high">R8 · High</span>
+          <h4>Sticky ATC Bar (Mobile)</h4>
+          <p>Fixed bar at bottom viewport appears when ATC scrolls out of view on mobile PDP. Shows product name + selected size. Disappears when ATC is visible.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-high">R9 · High</span>
+          <h4>Curated Cross-sell</h4>
+          <p>"Also pairs well with" — 3 hand-selected products per PDP (same colour family/styling context). Manual curation beats algorithm for 12-product catalog.</p>
+        </div>
+        <div class="ux-card">
+          <span class="tag ux-tag-high">R10 · High</span>
+          <h4>One-Page Checkout</h4>
+          <p>Contact / Delivery / Payment visible simultaneously. Express pay (Apple/Google Pay) at top. Persistent order summary right panel. Return policy below Pay button.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS COMPETITORS TABLE -->
+    <div style="margin-top: 48px;">
+      <div class="flow-label">Competitive positioning</div>
+      <h2 style="margin-bottom:8px; font-size:1.2rem;">What we do that competitors don't</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:4px;">
+        Based on D8 competitive analysis — Lunu.ch · GOBI EU · Laal.ch.
+      </p>
+      <table class="diff-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Lunu.ch</th>
+            <th>GOBI EU</th>
+            <th>Laal.ch</th>
+            <th>Wolly Lully</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Material specs (ply, micron, gsm) in-page</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">Partial</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Fit labels per size</td>
+            <td class="cross">"Free Size"</td>
+            <td class="cross">Charts only</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Return policy on PDP</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Slide-in cart drawer</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>CHF-native pricing</td>
+            <td class="tick">✓</td>
+            <td class="cross">EUR only</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Composition on grid cards</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Live AJAX filters</td>
+            <td class="cross">None</td>
+            <td class="tick">✓</td>
+            <td class="cross">Page reload</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Sticky ATC (mobile PDP)</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>One-page checkout</td>
+            <td class="cross">Multi-step</td>
+            <td class="cross">Multi-step</td>
+            <td class="cross">Multi-step</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td>Return policy in checkout</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="cross">✗</td>
+            <td class="tick">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Start flow CTA -->
+    <div style="text-align:center; margin-top:56px; padding: 40px; background:var(--bg-white); border:1px solid var(--border); border-radius:4px;">
+      <p class="label-caps" style="color:var(--gold); margin-bottom:12px;">Ready to explore</p>
+      <h2 style="margin-bottom:16px;">Start the user flow</h2>
+      <p style="color:var(--text-muted); margin-bottom:28px; font-size:0.92rem; max-width:400px; margin-left:auto; margin-right:auto;">
+        Begin at the homepage and navigate naturally through the shopping flow. Best tested on both desktop and mobile.
+      </p>
+      <a href="homepage.html" class="btn btn-primary btn--lg">Start on Homepage →</a>
+      <span style="margin:0 16px; color:var(--border-dark)">or</span>
+      <a href="pdp.html" class="btn btn-secondary">Jump to PDP →</a>
+    </div>
+
+  </div><!-- /container -->
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

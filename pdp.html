@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navy Cashmere Crewneck — Wolly Lully</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="header-nav">
+      <a href="shop.html" class="active">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="homepage.html" class="header-logo">WOLLY LULLY</a>
+    <div class="header-actions">
+      <button class="cart-btn" id="open-cart" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Cart
+        <span class="cart-badge"></span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <span>Menu</span>
+    <button class="icon-btn" id="nav-close">✕</button>
+  </div>
+  <div class="nav-drawer-links">
+    <a href="shop.html">Shop <span>›</span></a>
+    <a href="#">About <span>›</span></a>
+    <a href="#">Contact <span>›</span></a>
+  </div>
+  <div class="nav-drawer-footer">
+    <a href="#">Size Guide</a>
+    <a href="#">Returns &amp; Exchanges</a>
+    <a href="#">Shipping &amp; Delivery</a>
+  </div>
+</nav>
+
+<!-- ===== PAGE BODY ===== -->
+<main class="page-body">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="homepage.html">Home</a>
+      <span class="sep">›</span>
+      <a href="shop.html">Shop</a>
+      <span class="sep">›</span>
+      <span class="current">Navy Cashmere Crewneck</span>
+    </nav>
+
+    <!-- PDP GRID -->
+    <div class="pdp-grid">
+
+      <!-- LEFT: Gallery -->
+      <div class="pdp-gallery">
+        <div class="pdp-gallery-main" title="Click to zoom">
+          <div class="img-placeholder img-navy" id="main-img">NAVY CREWNECK · FRONT</div>
+        </div>
+        <div class="pdp-thumbs">
+          <div class="pdp-thumb active">
+            <div class="img-placeholder img-navy">Front</div>
+          </div>
+          <div class="pdp-thumb">
+            <div class="img-placeholder img-navy">Back</div>
+          </div>
+          <div class="pdp-thumb">
+            <div class="img-placeholder img-navy">Texture</div>
+          </div>
+          <div class="pdp-thumb">
+            <div class="img-placeholder img-navy">Detail</div>
+          </div>
+        </div>
+        <p style="font-size:0.72rem; color:var(--text-light); margin-top:10px; text-align:center;">+4 more photos · hover to zoom</p>
+      </div>
+
+      <!-- RIGHT: Product info -->
+      <div class="pdp-info">
+
+        <!-- Name & price -->
+        <div class="pdp-title-row">
+          <h1 class="pdp-name">Navy Cashmere Crewneck</h1>
+          <div class="pdp-price">CHF 285</div>
+        </div>
+
+        <!-- R1: Material Specs Block -->
+        <div class="specs-block">
+          <h4>Material Specifications</h4>
+          <dl class="specs-table">
+            <dt>Composition</dt>
+            <dd>100% 2-ply cashmere</dd>
+            <dt>Fibre fineness</dt>
+            <dd>&lt;19 micron (Grade A)</dd>
+            <dt>Weight</dt>
+            <dd>280 gsm</dd>
+            <dt>Origin</dt>
+            <dd>Trusted global manufacturing partners</dd>
+          </dl>
+        </div>
+
+        <!-- Colour selector -->
+        <div>
+          <div class="option-label">
+            <span>Colour — <span class="selected-colour">Navy</span></span>
+          </div>
+          <div class="colour-swatches">
+            <div class="swatch active img-navy" data-colour="Navy" title="Navy" style="border-radius:50%"></div>
+            <div class="swatch img-cream" data-colour="Cream" title="Cream" style="border-radius:50%; border:1px solid var(--border)"></div>
+          </div>
+          <p style="font-size:0.72rem; color:var(--text-light); margin-top:8px;">Also available in Cream · <a href="shop.html" style="text-decoration:underline">Browse all colourways</a></p>
+        </div>
+
+        <!-- R2: Size selector + fit labels -->
+        <div id="atc-form" class="size-selector">
+          <div class="option-label">
+            <span>Size</span>
+            <button class="size-guide-link">Size Guide →</button>
+          </div>
+          <div class="size-grid">
+            <button class="size-btn" data-size="XS">XS</button>
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn active" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+            <button class="size-btn" data-size="XXL">XXL</button>
+          </div>
+          <!-- R2: Fit label per size -->
+          <div class="fit-label" id="fit-label">Classic Fit — true to standard sizing</div>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-top:8px;">
+            Click a size to see its fit description.
+            <button class="size-guide-link" style="display:inline">View full size guide</button>
+          </p>
+        </div>
+
+        <!-- ATC section -->
+        <div class="atc-section">
+          <button
+            class="btn btn-primary btn--full btn--lg"
+            id="atc-btn"
+            data-id="WL-CN01-NVY"
+            data-name="Navy Cashmere Crewneck"
+            data-price="285"
+            data-composition="100% 2-ply cashmere"
+            data-selected-size="M"
+          >
+            ADD TO CART — CHF 285
+          </button>
+
+          <!-- R3: Trust bar -->
+          <div class="trust-bar">
+            <span>🚚 Swiss delivery 2–3 days</span>
+            <span>↩️ Free 30-day returns</span>
+            <span>🔒 Secure checkout</span>
+          </div>
+
+          <!-- R3: Return reassurance -->
+          <p style="font-size:0.78rem; color:var(--text-muted);">
+            Changed your mind? <a href="#" style="text-decoration:underline; color:inherit;">Free returns within 30 days</a>, no questions asked.
+          </p>
+
+          <!-- Payment icons -->
+          <div class="pdp-payment-icons">
+            <div class="pdp-payment-icon">VISA</div>
+            <div class="pdp-payment-icon">MC</div>
+            <div class="pdp-payment-icon">AMEX</div>
+            <div class="pdp-payment-icon">🍎 Pay</div>
+            <div class="pdp-payment-icon">G Pay</div>
+            <div class="pdp-payment-icon" style="opacity:0.45">TWINT <span style="font-size:0.6rem">(MVP)</span></div>
+          </div>
+        </div>
+
+        <!-- Product accordion details -->
+        <div class="product-accordions">
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Description
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>The Navy Cashmere Crewneck is a wardrobe essential built to last. Knitted from 100% 2-ply Grade A cashmere, it delivers an extraordinary softness that only improves with wear. The classic crewneck silhouette suits everything from smart-casual to relaxed weekend dressing.</p>
+              <br>
+              <p>The navy colourway is a Swiss wardrobe staple — pairs effortlessly with grey trousers, cream chinos, or dark denim. Finished with clean ribbed cuffs and hem.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Care Instructions
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>🌀 Hand wash cold or machine wash on wool/delicate cycle (30°C max)<br>
+              🚫 Do not tumble dry — lay flat to dry away from direct heat<br>
+              🧴 Use a gentle cashmere or wool detergent<br>
+              👕 Store folded, not hung — hang causes stretching over time<br>
+              🪷 De-pill with a cashmere comb after the first few wears — normal with 2-ply</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              Shipping &amp; Returns
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p><strong>Delivery:</strong> Swiss Post Priority · 2–3 business days · CHF 9 flat rate<br>
+              Free delivery on orders over CHF 300.</p>
+              <br>
+              <p><strong>Returns:</strong> Free 30-day returns. Contact <a href="mailto:hello@wollylully.ch" style="text-decoration:underline">hello@wollylully.ch</a> to initiate a return. We'll send you a prepaid return label. Refund issued within 5 business days of receiving the item.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /pdp-info -->
+    </div><!-- /pdp-grid -->
+
+    <!-- R9: Cross-sell "Complete the Look" -->
+    <div class="cross-sell">
+      <h3>Also pairs well with</h3>
+      <div class="cross-sell-grid">
+        <a href="pdp.html?product=cream-scarf" class="product-card">
+          <div class="product-card__image">
+            <div class="img-placeholder img-cream">Cream Scarf</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__name">Cream Cashmere Scarf</div>
+            <div class="product-card__composition">100% cashmere · 200 cm × 70 cm</div>
+            <div class="product-card__price">CHF 180</div>
+            <span class="product-card__cta">View Details</span>
+          </div>
+        </a>
+        <a href="pdp.html?product=grey-beanie" class="product-card">
+          <div class="product-card__image">
+            <div class="img-placeholder img-grey">Grey Beanie</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__name">Grey Cashmere Beanie</div>
+            <div class="product-card__composition">100% cashmere · One size</div>
+            <div class="product-card__price">CHF 185</div>
+            <span class="product-card__cta">View Details</span>
+          </div>
+        </a>
+        <a href="pdp.html?product=navy-cardigan" class="product-card">
+          <div class="product-card__image">
+            <div class="img-placeholder img-navy">Navy Cardigan</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__name">Navy Cashmere Cardigan</div>
+            <div class="product-card__composition">100% 2-ply cashmere · 260 gsm</div>
+            <div class="product-card__price">CHF 350</div>
+            <span class="product-card__cta">View Details</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html">Sweaters</a>
+        <a href="shop.html">Cardigans</a>
+        <a href="shop.html">Accessories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Info</h5>
+        <a href="#">About</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Care</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Imprint</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="#">hello@wollylully.ch</a>
+        <a href="#">Zurich, Switzerland</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Wolly Lully GmbH · Zurich, Switzerland</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MC</span>
+        <span class="payment-icon">AMEX</span>
+        <span class="payment-icon">🍎 Pay</span>
+        <span class="payment-icon">TWINT</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="cart-close">✕</button>
+  </div>
+  <div class="shipping-progress" id="shipping-progress">
+    <p>Add <strong>CHF 300</strong> more for free delivery 🎉</p>
+    <div class="progress-bar"><div class="progress-bar-fill" style="width:0%"></div></div>
+  </div>
+  <div id="cart-items-list" class="cart-items"></div>
+  <div class="cart-empty" id="cart-empty">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" style="color:var(--border-dark)"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+    <p>Your cart is empty.</p>
+    <a href="shop.html" class="btn btn-secondary">Browse Collection</a>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-totals">
+      <div class="row"><span>Subtotal</span><span id="cart-subtotal">CHF 0</span></div>
+      <div class="row"><span>Delivery</span><span id="cart-shipping">CHF 9</span></div>
+      <div class="row" style="font-size:0.75rem; color:var(--text-light)"><span>VAT (7.7%, incl.)</span><span id="cart-vat">—</span></div>
+      <div class="row total"><span>Total</span><span id="cart-total">CHF 0</span></div>
+    </div>
+    <button class="btn btn-primary btn--full btn--lg" id="cart-checkout-btn">CHECKOUT →</button>
+    <button class="btn btn-secondary btn--full" style="margin-top:8px" onclick="closeCart()">Continue Shopping</button>
+    <p class="cart-trust">↩️ 30-day free returns &nbsp;·&nbsp; 🔒 Secure checkout</p>
+  </div>
+</aside>
+
+<!-- ===== SIZE GUIDE MODAL ===== -->
+<div class="modal-overlay" id="size-guide-modal" role="dialog" aria-label="Size guide">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Size Guide — Crewneck</h3>
+      <button class="icon-btn" id="size-guide-close">✕</button>
+    </div>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px;">
+      Measurements taken flat (cm). For a comfortable fit, match to your chest measurement.
+      Our cashmere has slight natural stretch — if between sizes, size up for a relaxed feel.
+    </p>
+    <table class="size-guide-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Chest (cm)</th>
+          <th>Length (cm)</th>
+          <th>Sleeve (cm)</th>
+          <th>Fit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>XS</td><td>84–88</td><td>62</td><td>61</td><td>Slim</td></tr>
+        <tr><td>S</td><td>88–93</td><td>64</td><td>62</td><td>Slim</td></tr>
+        <tr style="background:rgba(184,146,74,0.06)"><td><strong>M</strong></td><td>93–99</td><td>66</td><td>63</td><td>Classic</td></tr>
+        <tr><td>L</td><td>99–105</td><td>68</td><td>64</td><td>Classic</td></tr>
+        <tr><td>XL</td><td>105–112</td><td>70</td><td>65</td><td>Relaxed</td></tr>
+        <tr><td>XXL</td><td>112–120</td><td>72</td><td>66</td><td>Relaxed</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.75rem; color:var(--text-light); margin-top:16px;">
+      Flat-lay method: Lay garment flat, measure chest across at widest point. Double for circumference.
+      Questions? Contact us at <a href="mailto:hello@wollylully.ch" style="text-decoration:underline">hello@wollylully.ch</a>.
+    </p>
+  </div>
+</div>
+
+<!-- R8: Sticky ATC bar (mobile) -->
+<div class="sticky-atc" id="sticky-atc" role="complementary">
+  <div class="sticky-atc-info">
+    <div class="name">Navy Cashmere Crewneck</div>
+    <div class="meta" id="sticky-atc-meta">Navy · Size M</div>
+  </div>
+  <button class="btn btn-primary" id="sticky-atc-btn">ADD TO CART</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

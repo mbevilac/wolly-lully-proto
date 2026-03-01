@@ -3,6 +3,171 @@
    Shared across all prototype pages
    ============================================================ */
 
+/* --- Product Data (for PDP switching) --- */
+const PRODUCTS = {
+  'navy-crewneck': {
+    id: 'WL-CN01-NVY', name: 'Navy Cashmere Crewneck', price: 285,
+    composition: '100% 2-ply cashmere',
+    specs: [
+      ['Composition', '100% 2-ply cashmere'],
+      ['Fibre fineness', '<19 micron (Grade A)'],
+      ['Weight', '280 gsm'],
+      ['Origin', 'Trusted global manufacturing partners'],
+    ],
+    fits: { XS: 'Slim Fit — close-cut, tailored', S: 'Slim Fit — close-cut, tailored', M: 'Classic Fit — true to standard sizing', L: 'Classic Fit — true to standard sizing', XL: 'Relaxed Fit — falls softly, generous through the body', XXL: 'Relaxed Fit — falls softly, generous through the body' },
+    sizes: ['XS','S','M','L','XL','XXL'], defaultSize: 'M',
+    colours: [{ label: 'Navy', cls: 'img-navy', active: true }, { label: 'Cream', cls: 'img-cream', border: true }],
+    defaultColour: 'Navy',
+    image: 'imgs/products/navy-cashmere-crewneck-front.png',
+    thumbs: ['imgs/products/navy-cashmere-crewneck-front.png','imgs/lifestyle/about-lifestyle-01.png','imgs/lifestyle/about-lifestyle-02.png','imgs/lifestyle/about-lifestyle-03.png'],
+    breadcrumb: 'Navy Cashmere Crewneck',
+    eduText: '<strong>Why it matters:</strong> &lt;19 micron fibre is the finest grade of cashmere — softer against skin and more durable over years. 280 gsm means substantial warmth without bulk. 2-ply construction holds its shape wash after wash.',
+    crossLink: 'Also available in Cream · <a href="shop.html" style="text-decoration:underline">Browse all colourways</a>',
+    accordionDesc: 'The Navy Cashmere Crewneck is a wardrobe essential built to last. Knitted from 100% 2-ply Grade A cashmere, it delivers an extraordinary softness that only improves with wear. The classic crewneck silhouette suits everything from smart-casual to relaxed weekend dressing.<br><br>The navy colourway is a Swiss wardrobe staple — pairs effortlessly with grey trousers, cream chinos, or dark denim. Finished with clean ribbed cuffs and hem.',
+    careInstructions: '🌀 Hand wash cold or machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry away from direct heat<br>🧴 Use a gentle cashmere or wool detergent<br>👕 Store folded, not hung — hang causes stretching over time<br>🪷 De-pill with a cashmere comb after the first few wears — normal with 2-ply',
+  },
+  'oatmeal-merino': {
+    id: 'WL-CN09-OAT', name: 'Oatmeal Merino Crewneck', price: 195,
+    composition: '80% merino, 20% cashmere',
+    specs: [
+      ['Composition', '80% merino, 20% cashmere'],
+      ['Weight', '240 gsm'],
+      ['Construction', 'Fine-gauge knit'],
+      ['Origin', 'Trusted global manufacturing partners'],
+    ],
+    fits: { XS: 'Slim Fit — close-cut, tailored', S: 'Slim Fit — close-cut, tailored', M: 'Classic Fit — true to standard sizing', L: 'Classic Fit — true to standard sizing', XL: 'Relaxed Fit — falls softly, generous through the body', XXL: 'Relaxed Fit — falls softly, generous through the body' },
+    sizes: ['XS','S','M','L','XL','XXL'], defaultSize: 'M',
+    colours: [{ label: 'Oatmeal', cls: 'img-oatmeal', active: true }],
+    defaultColour: 'Oatmeal',
+    image: 'imgs/products/oatmeal-merino-crewneck-front.png',
+    thumbs: ['imgs/products/oatmeal-merino-crewneck-front.png','imgs/lifestyle/about-lifestyle-01.png','imgs/lifestyle/about-lifestyle-02.png','imgs/lifestyle/about-lifestyle-03.png'],
+    breadcrumb: 'Oatmeal Merino Crewneck',
+    eduText: '<strong>Why merino-cashmere?</strong> The 80/20 blend gives you cashmere\'s signature softness with merino\'s natural temperature regulation and easy-care properties. Machine washable on wool cycle. The ideal everyday sweater — soft enough for bare skin, durable enough for daily wear.',
+    crossLink: null,
+    accordionDesc: 'The Oatmeal Merino Crewneck is the entry point to the Wolly Lully wardrobe — and not a compromise. The 80/20 merino-cashmere blend is deliberately chosen: cashmere adds that unmistakable softness against skin, while merino provides natural temperature regulation and easy-care durability.<br><br>Machine washable on a wool cycle. The ideal everyday sweater for those who wear their knitwear hard.',
+    careInstructions: '🌀 Machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry<br>🧴 Merino-safe detergent<br>👕 Store folded, not hung',
+  },
+  'cream-scarf': {
+    id: 'WL-SC11-CRM', name: 'Cream Cashmere Scarf', price: 180,
+    composition: '100% cashmere',
+    specs: [
+      ['Composition', '100% cashmere'],
+      ['Dimensions', '200 cm × 70 cm'],
+      ['Weight', '180 gsm'],
+      ['Origin', 'Trusted global manufacturing partners'],
+    ],
+    fits: { 'ONE SIZE': 'One Size — 200 cm × 70 cm' },
+    sizes: ['ONE SIZE'], defaultSize: 'ONE SIZE',
+    colours: [{ label: 'Cream', cls: 'img-cream', active: true, border: true }],
+    defaultColour: 'Cream',
+    image: 'imgs/products/cream-cashmere-scarf-front.png',
+    thumbs: ['imgs/products/cream-cashmere-scarf-front.png','imgs/lifestyle/about-lifestyle-01.png','imgs/lifestyle/about-lifestyle-02.png','imgs/lifestyle/about-lifestyle-03.png'],
+    breadcrumb: 'Cream Cashmere Scarf',
+    eduText: '<strong>Why it matters:</strong> 100% cashmere at 180 gsm gives the scarf its characteristic drape — lightweight enough for indoor wear, warm enough for Swiss winters. The generous 200 cm length allows effortless wrapping or doubling.',
+    crossLink: null,
+    accordionDesc: 'The Cream Cashmere Scarf is pure luxury made wearable. At 200 cm × 70 cm, it\'s designed to wrap, drape, or double — adapting to how you need warmth. Made from Grade A cashmere, finished with clean hand-rolled edges.',
+    careInstructions: '🌀 Hand wash cold or machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat<br>🧴 Cashmere or wool detergent<br>👕 Store folded',
+  },
+  'black-merino': {
+    id: 'WL-VN10-BLK', name: 'Black Merino V-Neck', price: 195,
+    composition: '80% merino, 20% cashmere',
+    specs: [
+      ['Composition', '80% merino, 20% cashmere'],
+      ['Weight', '240 gsm'],
+      ['Construction', 'Fine-gauge knit'],
+      ['Origin', 'Trusted global manufacturing partners'],
+    ],
+    fits: { XS: 'Slim Fit — close-cut, tailored', S: 'Slim Fit — close-cut, tailored', M: 'Classic Fit — true to standard sizing', L: 'Classic Fit — true to standard sizing', XL: 'Relaxed Fit — falls softly, generous through the body', XXL: 'Relaxed Fit — falls softly, generous through the body' },
+    sizes: ['XS','S','M','L','XL','XXL'], defaultSize: 'M',
+    colours: [{ label: 'Black', cls: 'img-black', active: true }],
+    defaultColour: 'Black',
+    image: 'imgs/products/black-merino-vneck-front.png',
+    thumbs: ['imgs/products/black-merino-vneck-front.png','imgs/lifestyle/about-lifestyle-01.png','imgs/lifestyle/about-lifestyle-02.png','imgs/lifestyle/about-lifestyle-03.png'],
+    breadcrumb: 'Black Merino V-Neck',
+    eduText: '<strong>Why merino-cashmere?</strong> The 80/20 blend gives you cashmere\'s signature softness with merino\'s natural temperature regulation and easy-care properties. Machine washable on wool cycle. The ideal everyday sweater — soft enough for bare skin, durable enough for daily wear.',
+    crossLink: null,
+    accordionDesc: 'The Black Merino V-Neck is a wardrobe workhorse in premium form. The V-neck silhouette is versatile — pairs over a shirt for smart-casual, or alone for weekend ease. Same 80/20 merino-cashmere blend as the Oatmeal Crewneck: machine washable, temperature-regulating, built for daily wear.',
+    careInstructions: '🌀 Machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry<br>🧴 Merino-safe detergent<br>👕 Store folded, not hung',
+  },
+};
+
+/* --- PDP Product Switching --- */
+function initPdpProductSwitch() {
+  const pdpName = document.querySelector('.pdp-name');
+  if (!pdpName) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('product') || 'navy-crewneck';
+  const product = PRODUCTS[slug] || PRODUCTS['navy-crewneck'];
+
+  document.title = `${product.name} — Wolly Lully`;
+  const breadcrumbCurrent = document.querySelector('.breadcrumb .current');
+  if (breadcrumbCurrent) breadcrumbCurrent.textContent = product.breadcrumb;
+
+  pdpName.textContent = product.name;
+  const priceEl = document.querySelector('.pdp-price');
+  if (priceEl) priceEl.textContent = `CHF ${product.price}`;
+
+  const specsDl = document.getElementById('specs-dl');
+  if (specsDl) specsDl.innerHTML = product.specs.map(([dt, dd]) => `<dt>${dt}</dt><dd>${dd === '<19 micron (Grade A)' ? '&lt;19 micron (Grade A)' : dd}</dd>`).join('');
+
+  const eduEl = document.getElementById('specs-edu');
+  if (eduEl) eduEl.innerHTML = product.eduText;
+
+  const mainImg = document.getElementById('main-img');
+  if (mainImg) { mainImg.src = product.image; mainImg.alt = product.name; }
+  const thumbImgs = document.querySelectorAll('.pdp-thumb img');
+  product.thumbs.forEach((src, i) => { if (thumbImgs[i]) { thumbImgs[i].src = src; thumbImgs[i].alt = product.name; } });
+
+  const swatchContainer = document.querySelector('.colour-swatches');
+  if (swatchContainer) {
+    swatchContainer.innerHTML = product.colours.map(c =>
+      `<div class="swatch${c.active ? ' active' : ''} ${c.cls}" data-colour="${c.label}" title="${c.label}" style="border-radius:50%;${c.border ? 'border:1px solid var(--border)' : ''}"></div>`
+    ).join('');
+  }
+  const colourLabel = document.querySelector('.selected-colour');
+  if (colourLabel) colourLabel.textContent = product.defaultColour;
+  const colourSubtext = document.querySelector('.colour-subtext');
+  if (colourSubtext) colourSubtext.innerHTML = product.crossLink || '';
+
+  const sizeGrid = document.querySelector('.size-grid');
+  if (sizeGrid) {
+    sizeGrid.innerHTML = product.sizes.map(s =>
+      `<button class="size-btn${s === product.defaultSize ? ' active' : ''}" data-size="${s}">${s}</button>`
+    ).join('');
+  }
+  if (product.sizes.length === 1 && product.sizes[0] === 'ONE SIZE') {
+    document.querySelectorAll('.size-guide-link').forEach(el => el.style.display = 'none');
+    const helpP = document.querySelector('#atc-form > p');
+    if (helpP) helpP.style.display = 'none';
+  }
+
+  const fitLabelEl = document.getElementById('fit-label');
+  if (fitLabelEl && product.fits[product.defaultSize]) fitLabelEl.textContent = product.fits[product.defaultSize];
+
+  const stickyName = document.querySelector('.sticky-atc-info .name');
+  if (stickyName) stickyName.textContent = product.name;
+  const stickyMeta = document.getElementById('sticky-atc-meta');
+  if (stickyMeta) stickyMeta.textContent = `${product.defaultColour} · Size ${product.defaultSize}`;
+
+  const atcBtn = document.getElementById('atc-btn');
+  if (atcBtn) {
+    atcBtn.dataset.id = product.id;
+    atcBtn.dataset.name = product.name;
+    atcBtn.dataset.price = product.price;
+    atcBtn.dataset.composition = product.composition;
+    atcBtn.dataset.selectedSize = product.defaultSize;
+    atcBtn.dataset.image = product.image;
+    atcBtn.textContent = `ADD TO CART — CHF ${product.price}`;
+  }
+
+  const accordionContents = document.querySelectorAll('.accordion-content');
+  if (accordionContents[0]) accordionContents[0].innerHTML = `<p>${product.accordionDesc}</p>`;
+  if (accordionContents[1]) accordionContents[1].innerHTML = `<p>${product.careInstructions}</p>`;
+
+  window._pdpFitLabels = product.fits;
+}
+
 /* --- Cart State (localStorage) --- */
 const CART_KEY = 'wl_proto_cart';
 
@@ -241,12 +406,15 @@ function initFilterAccordions() {
 
 /* --- Size guide modal --- */
 function initSizeGuide() {
+  function openSizeGuide() {
+    document.getElementById('size-guide-modal')?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
   document.querySelectorAll('.size-guide-link').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('size-guide-modal')?.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
+    btn.addEventListener('click', openSizeGuide);
   });
+  // Fit label is also clickable (change #5)
+  document.getElementById('fit-label')?.addEventListener('click', openSizeGuide);
   document.getElementById('size-guide-close')?.addEventListener('click', closeSizeGuide);
   document.getElementById('size-guide-modal')?.addEventListener('click', e => {
     if (e.target === e.currentTarget) closeSizeGuide();
@@ -275,7 +443,8 @@ function initColourSwatches() {
 function initSizeSelector() {
   const sizeBtns = document.querySelectorAll('.size-btn:not(.out-of-stock)');
   const fitLabel = document.getElementById('fit-label');
-  const fitLabels = {
+  // Use product-specific fit labels when available (set by initPdpProductSwitch)
+  const fitLabels = window._pdpFitLabels || {
     'XS': 'Slim Fit — close-cut, tailored',
     'S':  'Slim Fit — close-cut, tailored',
     'M':  'Classic Fit — true to standard sizing',
@@ -606,6 +775,7 @@ function initShopFilters() {
 
 /* --- Init all --- */
 document.addEventListener('DOMContentLoaded', () => {
+  initPdpProductSwitch(); // must run before initSizeSelector/initColourSwatches
   updateCartBadge();
   initHeader();
   initStickyHeader();

@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop — Wolly Lully</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
   <div class="header-inner">
     <nav class="header-nav">
       <a href="shop.html" class="active">Shop</a>
-      <a href="#">About</a>
+      <a href="about.html">About</a>
       <a href="#">Contact</a>
     </nav>
     <a href="homepage.html" class="header-logo">WOLLY LULLY</a>
@@ -51,6 +54,17 @@
 
 <!-- ===== PAGE BODY ===== -->
 <main class="page-body">
+
+  <!-- BRAND STRIP -->
+  <div class="brand-strip">
+    <div class="brand-strip-inner">
+      <span>🚚 Swiss delivery · CHF 9 · free over CHF 300</span>
+      <span>↩️ Free return shipping · 30 days</span>
+      <span>🔒 Secure checkout</span>
+      <span>🇨🇭 CHF pricing</span>
+    </div>
+  </div>
+
   <div class="container">
 
     <!-- Breadcrumb -->
@@ -140,7 +154,7 @@
     <div class="product-grid" id="product-grid" style="margin-top:20px; margin-bottom:64px;">
 
       <!-- 1. Navy Cashmere Crewneck -->
-      <a href="pdp.html" class="product-card"
+      <a href="pdp.html?product=navy-crewneck" class="product-card"
          data-order="1" data-price="180-300" data-price-num="285"
          data-colour="navy" data-sizes="XS,S,M,L,XL,XXL"
          data-fit="Classic" data-style="Crewneck" data-material="cashmere">
@@ -361,7 +375,7 @@
       </div>
       <div class="footer-col">
         <h5>Info</h5>
-        <a href="#">About Wolly Lully</a>
+        <a href="about.html">About Wolly Lully</a>
         <a href="#">Size Guide</a>
         <a href="#">Care Instructions</a>
         <a href="#">Contact</a>
@@ -499,7 +513,7 @@
     </div>
     <button class="btn btn-primary btn--full btn--lg" id="cart-checkout-btn">CHECKOUT →</button>
     <button class="btn btn-secondary btn--full" style="margin-top:8px" onclick="closeCart()">Continue Shopping</button>
-    <p class="cart-trust">↩️ 30-day free returns &nbsp;·&nbsp; 🔒 Secure checkout</p>
+    <p class="cart-trust">↩️ 30-day free return shipping &nbsp;·&nbsp; 🔒 Secure checkout</p>
   </div>
 </aside>
 

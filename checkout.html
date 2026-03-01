@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout — Wolly Lully</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     body { background: var(--bg-white); }
@@ -223,7 +226,7 @@
 
       <!-- R3: Reassurance below pay button -->
       <p class="checkout-reassurance">
-        ↩️ 30-day free returns &nbsp;·&nbsp; 🔒 Your payment is encrypted and secure<br>
+        ↩️ 30-day free return shipping &nbsp;·&nbsp; 🔒 Your payment is encrypted and secure<br>
         By placing your order you agree to our <a href="#" style="text-decoration:underline; color:inherit;">Terms &amp; Conditions</a>.
       </p>
 
@@ -258,7 +261,7 @@
 
     <div class="order-footer">
       🚚 Estimated delivery 2–3 business days after dispatch<br>
-      ↩️ 30-day free returns on all orders
+      ↩️ 30-day free return shipping on all orders
     </div>
   </div>
 
@@ -287,28 +290,91 @@
 
 <script src="app.js"></script>
 <script>
-  function handlePayment() {
-    const cardNum = document.getElementById('card-number')?.value;
-    const address = document.getElementById('address')?.value;
+  /* --- Checkout form validation --- */
+  function clearFieldError(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('error');
+    const errEl = el.parentElement.querySelector('.field-error');
+    if (errEl) errEl.remove();
+  }
 
-    if (!address) {
-      showToast('Please enter your delivery address');
-      document.getElementById('address')?.focus();
-      return;
+  function setFieldError(id, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('error');
+    if (!el.parentElement.querySelector('.field-error')) {
+      const span = document.createElement('span');
+      span.className = 'field-error';
+      span.textContent = msg;
+      el.parentElement.appendChild(span);
+    }
+    return el;
+  }
+
+  function validateForm() {
+    let firstError = null;
+    const required = [
+      { id: 'email',      label: 'Email address' },
+      { id: 'first-name', label: 'First name' },
+      { id: 'last-name',  label: 'Last name' },
+      { id: 'address',    label: 'Street address' },
+      { id: 'postcode',   label: 'Postcode' },
+      { id: 'city',       label: 'City' },
+    ];
+
+    required.forEach(f => clearFieldError(f.id));
+
+    required.forEach(f => {
+      const el = document.getElementById(f.id);
+      if (!el || !el.value.trim()) {
+        const errEl = setFieldError(f.id, `${f.label} is required`);
+        if (!firstError && errEl) firstError = errEl;
+      }
+    });
+
+    // Email format
+    const emailEl = document.getElementById('email');
+    if (emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      setFieldError('email', 'Please enter a valid email address');
+      if (!firstError) firstError = emailEl;
     }
 
-    // Simulate payment processing
+    // Swiss postcode format (4 digits) when country = CH
+    const countryEl = document.getElementById('country');
+    const postcodeEl = document.getElementById('postcode');
+    if (postcodeEl && postcodeEl.value.trim() && (!countryEl || countryEl.value === 'CH')) {
+      if (!/^\d{4}$/.test(postcodeEl.value.trim())) {
+        setFieldError('postcode', 'Swiss postcodes are 4 digits (e.g. 8001)');
+        if (!firstError) firstError = postcodeEl;
+      }
+    }
+
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstError.focus();
+      return false;
+    }
+    return true;
+  }
+
+  // Clear errors on input
+  ['email','first-name','last-name','address','postcode','city'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', () => clearFieldError(id));
+  });
+
+  function handlePayment() {
+    if (!validateForm()) return;
+
     const btn = document.getElementById('pay-btn');
     btn.textContent = 'Processing…';
     btn.disabled = true;
     btn.style.opacity = '0.7';
 
     setTimeout(() => {
-      // Show confirmation
       const screen = document.getElementById('confirmation-screen');
       screen.style.display = 'flex';
 
-      // Populate confirmation items
       const cart = getCart();
       const confirmItems = document.getElementById('confirmation-items');
       const confirmTotal = document.getElementById('confirmation-total');
@@ -321,13 +387,11 @@
           </div>
         `).join('');
         const total = cartTotal() + (cartTotal() >= 300 ? 0 : 9);
-        confirmTotal.textContent = `CHF ${total.toFixed(0)}`;
-        // Clear cart after order
+        if (confirmTotal) confirmTotal.textContent = `CHF ${total.toFixed(0)}`;
         saveCart([]);
         updateCartBadge();
       } else {
-        // Demo items
-        confirmItems.innerHTML = `
+        if (confirmItems) confirmItems.innerHTML = `
           <div style="display:flex; justify-content:space-between; font-size:0.85rem; padding:4px 0;">
             <span>Navy Cashmere Crewneck · M × 1</span><span>CHF 285</span>
           </div>
@@ -339,13 +403,16 @@
     }, 1400);
   }
 
-  // Auto-update shipping display based on total
+  // Auto-update shipping display based on cart total
   document.addEventListener('DOMContentLoaded', () => {
     const total = cartTotal();
     if (total >= 300) {
-      document.getElementById('shipping-price-display').textContent = 'Free';
-      document.getElementById('free-shipping-msg').style.display = 'block';
-      document.getElementById('co-shipping').textContent = 'Free';
+      const shipDisplay = document.getElementById('shipping-price-display');
+      const freeMsg = document.getElementById('free-shipping-msg');
+      const coShipping = document.getElementById('co-shipping');
+      if (shipDisplay) shipDisplay.textContent = 'Free';
+      if (freeMsg) freeMsg.style.display = 'block';
+      if (coShipping) coShipping.textContent = 'Free';
     }
   });
 </script>

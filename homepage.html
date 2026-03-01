@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wolly Lully — Swiss Cashmere</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     /* Homepage-only extras */
@@ -44,23 +47,6 @@
 
     .mission-wrap { margin: 0 -24px; }
     @media (max-width: 640px) { .mission-wrap { margin: 0 -16px; } }
-
-    .brand-strip {
-      background: var(--navy);
-      color: rgba(255,255,255,0.65);
-      padding: 14px 0;
-      overflow: hidden;
-    }
-    .brand-strip-inner {
-      display: flex;
-      gap: 48px;
-      justify-content: center;
-      flex-wrap: wrap;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .brand-strip-inner span { display: flex; align-items: center; gap: 8px; }
   </style>
 </head>
 <body>
@@ -71,7 +57,7 @@
     <!-- Desktop nav -->
     <nav class="header-nav">
       <a href="shop.html">Shop</a>
-      <a href="#">About</a>
+      <a href="about.html">About</a>
       <a href="#">Contact</a>
     </nav>
 
@@ -149,7 +135,7 @@
       <div class="featured-grid">
 
         <!-- Product 1 -->
-        <a href="pdp.html" class="product-card">
+        <a href="pdp.html?product=navy-crewneck" class="product-card">
           <div class="product-card__image">
             <img src="imgs/products/navy-cashmere-crewneck-front.png" alt="Navy Cashmere Crewneck" loading="lazy">
           </div>
@@ -258,7 +244,7 @@
       </div>
       <div class="footer-col">
         <h5>Info</h5>
-        <a href="#">About Wolly Lully</a>
+        <a href="about.html">About Wolly Lully</a>
         <a href="#">Size Guide</a>
         <a href="#">Care Instructions</a>
         <a href="#">Contact</a>
@@ -318,7 +304,7 @@
     </div>
     <button class="btn btn-primary btn--full btn--lg" id="cart-checkout-btn">CHECKOUT →</button>
     <button class="btn btn-secondary btn--full" style="margin-top:8px" onclick="closeCart()">Continue Shopping</button>
-    <p class="cart-trust">↩️ 30-day free returns &nbsp;·&nbsp; 🔒 Secure checkout</p>
+    <p class="cart-trust">↩️ 30-day free return shipping &nbsp;·&nbsp; 🔒 Secure checkout</p>
   </div>
 </aside>
 

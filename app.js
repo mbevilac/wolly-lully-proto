@@ -24,7 +24,7 @@ const PRODUCTS = {
     eduText: '<strong>Why it matters:</strong> &lt;19 micron fibre is the finest grade of cashmere — softer against skin and more durable over years. 280 gsm means substantial warmth without bulk. 2-ply construction holds its shape wash after wash.',
     crossLink: 'Also available in Cream · <a href="shop.html" style="text-decoration:underline">Browse all colourways</a>',
     accordionDesc: 'The Navy Cashmere Crewneck is a wardrobe essential built to last. Knitted from 100% 2-ply Grade A cashmere, it delivers an extraordinary softness that only improves with wear. The classic crewneck silhouette suits everything from smart-casual to relaxed weekend dressing.<br><br>The navy colourway is a Swiss wardrobe staple — pairs effortlessly with grey trousers, cream chinos, or dark denim. Finished with clean ribbed cuffs and hem.',
-    careInstructions: '🌀 Hand wash cold or machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry away from direct heat<br>🧴 Use a gentle cashmere or wool detergent<br>👕 Store folded, not hung — hang causes stretching over time<br>🪷 De-pill with a cashmere comb after the first few wears — normal with 2-ply',
+    careInstructions: '🌀 Hand wash',
   },
   'oatmeal-merino': {
     id: 'WL-CN09-OAT', name: 'Oatmeal Merino Crewneck', price: 195,
@@ -45,7 +45,7 @@ const PRODUCTS = {
     eduText: '<strong>Why merino-cashmere?</strong> The 80/20 blend gives you cashmere\'s signature softness with merino\'s natural temperature regulation and easy-care properties. Machine washable on wool cycle. The ideal everyday sweater — soft enough for bare skin, durable enough for daily wear.',
     crossLink: null,
     accordionDesc: 'The Oatmeal Merino Crewneck is the entry point to the Wooly Lully wardrobe — and not a compromise. The 80/20 merino-cashmere blend is deliberately chosen: cashmere adds that unmistakable softness against skin, while merino provides natural temperature regulation and easy-care durability.<br><br>Machine washable on a wool cycle. The ideal everyday sweater for those who wear their knitwear hard.',
-    careInstructions: '🌀 Machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry<br>🧴 Merino-safe detergent<br>👕 Store folded, not hung',
+    careInstructions: '🌀 Hand wash',
   },
   'cream-scarf': {
     id: 'WL-SC11-CRM', name: 'Cream Cashmere Scarf', price: 180,
@@ -66,7 +66,7 @@ const PRODUCTS = {
     eduText: '<strong>Why it matters:</strong> 100% cashmere at 180 gsm gives the scarf its characteristic drape — lightweight enough for indoor wear, warm enough for Swiss winters. The generous 200 cm length allows effortless wrapping or doubling.',
     crossLink: null,
     accordionDesc: 'The Cream Cashmere Scarf is pure luxury made wearable. At 200 cm × 70 cm, it\'s designed to wrap, drape, or double — adapting to how you need warmth. Made from Grade A cashmere, finished with clean hand-rolled edges.',
-    careInstructions: '🌀 Hand wash cold or machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat<br>🧴 Cashmere or wool detergent<br>👕 Store folded',
+    careInstructions: '🌀 Hand wash',
   },
   'black-merino': {
     id: 'WL-VN10-BLK', name: 'Black Merino V-Neck', price: 195,
@@ -87,7 +87,7 @@ const PRODUCTS = {
     eduText: '<strong>Why merino-cashmere?</strong> The 80/20 blend gives you cashmere\'s signature softness with merino\'s natural temperature regulation and easy-care properties. Machine washable on wool cycle. The ideal everyday sweater — soft enough for bare skin, durable enough for daily wear.',
     crossLink: null,
     accordionDesc: 'The Black Merino V-Neck is a wardrobe workhorse in premium form. The V-neck silhouette is versatile — pairs over a shirt for smart-casual, or alone for weekend ease. Same 80/20 merino-cashmere blend as the Oatmeal Crewneck: machine washable, temperature-regulating, built for daily wear.',
-    careInstructions: '🌀 Machine wash on wool/delicate cycle (30°C max)<br>🚫 Do not tumble dry — lay flat to dry<br>🧴 Merino-safe detergent<br>👕 Store folded, not hung',
+    careInstructions: '🌀 Hand wash',
   },
 };
 
